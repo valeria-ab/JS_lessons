@@ -1,7 +1,5 @@
 console.log('lesson 2');
 
-// Lexical environment
-// http://jsflow.org/docs/lex-env/
 
 //// Closure
 // https://learn.javascript.ru/closure
@@ -18,11 +16,23 @@ console.log('lesson 2');
 
 // Recursion
 // https://learn.javascript.ru/recursion
-// https://www.youtube.com/watch?v=Kuq6oIN3PH0
+
+
+
+
+
 
 
 // Task 01
 // Реализовать функцию sum которая суммирует 2 числа следующим образом sum(3)(6) === 9
+
+function sum(n:number) {
+    return function (n2: number) {
+        //console.log(n + n2)
+        return n + n2
+    }
+}
+sum(3)(6)
 
 // Task 02
 // Реализовать функцию makeCounter которая работает следующим образом:
@@ -33,6 +43,21 @@ console.log('lesson 2');
 // counter2(); // 1
 // counter(); // 3
 
+function makeCounter() {
+    let count = 0
+    return function (){
+       return  ++count
+    }
+}
+
+const counter = makeCounter();
+counter(); // 1
+counter(); // 2
+const counter2 = makeCounter();
+counter2(); // 1
+counter(); // 3
+
+
 // Task 03
 // Переписать функцию из Task 02 так, что бы она принимала число в качестве аргумента и это число было стартовым значением счетчика
 // и возвращала следующий объект методов:
@@ -40,6 +65,24 @@ console.log('lesson 2');
 // decrease: -1
 // reset: установить счетчик в 0;
 // set: установить счетчик в заданное значение;
+
+function makeCounter2(count: number) {
+    let initialCount = count
+    return {
+        increase() { return ++initialCount },
+        decrease() { return --initialCount },
+        reset() {return initialCount = 0},
+        set(i:number) {return initialCount = i}
+    }
+}
+
+let counter1 = makeCounter2(5)
+console.log(counter1)
+console.log(counter1.increase())
+console.log(counter1.decrease())
+console.log(counter1.reset())
+console.log(counter1.set(10))
+
 
 // Task 04*
 // Реализовать функцию superSum которая принимает число в качестве аргумента, которое указывает на количество слагаемых
@@ -50,6 +93,24 @@ console.log('lesson 2');
 // 4) superSum(3)(2,5,3) //10
 // 5) superSum(3)(2,5)(3) //10
 // 6) superSum(3)(2,5)(3,9) //10
+
+/*function superSum(num: number) {
+    if (num <= 0) return 0;
+    if (num === 1) return (n: number) => n;
+
+    let _arguments: number[] = [];
+
+    function helper(...args: number[]) {
+        _arguments = [..._arguments, ...args]
+        if (_arguments.length >= num) {
+            _arguments.length = num;
+            return _arguments.reduce( (acc, number) => acc + number)
+        } else {
+            return helper;
+        }
+    }
+    return  helper
+}*/
 
 // P.S. типизируйте только аргументы, а при вызове функции используйте @ts-ignore
 

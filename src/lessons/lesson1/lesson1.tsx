@@ -1,10 +1,31 @@
 import React from 'react';
 import CurrencyExchangeContainer from '../../containers/CurrencyExchangeContainer/CurrencyEContainer'
 
+
 // Redux
 // https://tproger.ru/translations/redux-for-beginners/
 // https://monsterlessons.com/project/series/redux-js-dlya-nachinayushih
-// https://xsltdev.ru/react/redux/intro/
+
+
+// Typescript genetic
+// https://habr.com/ru/post/455473/
+// https://habr.com/ru/company/ruvds/blog/426729/
+
+
+// Container component - просм, изи
+// https://habr.com/ru/company/ruvds/blog/446206/
+
+
+
+
+
+
+
+
+// Redux
+// https://tproger.ru/translations/redux-for-beginners/
+// https://monsterlessons.com/project/series/redux-js-dlya-nachinayushih
+
 
 // Typescript genetic
 // https://habr.com/ru/post/455473/
